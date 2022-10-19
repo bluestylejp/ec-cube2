@@ -113,20 +113,20 @@ jobs:
           docker-compose up -d
 
       - run: sleep 1
-      - run: |
-          yarn install
-          yarn run playwright install --with-deps chromium
-          yarn playwright install-deps chromium
+#      - run: |
+#          yarn install
+#          yarn run playwright install --with-deps chromium
+#          yarn playwright install-deps chromium
 
-      - name: Run to E2E testing
-        env:
-          GROUP: ${{ matrix.group }}
-          PATTERN: ${{ matrix.pattern }}
-          HTTPS_PROXY: 'localhost:8090'
-          HTTP_PROXY: 'localhost:8090'
-          CI: 1
-          FORCE_COLOR: 1
-        run: yarn test:e2e e2e-tests/test/front_guest
+#      - name: Run to E2E testing
+#        env:
+#          GROUP: ${{ matrix.group }}
+#          PATTERN: ${{ matrix.pattern }}
+#          HTTPS_PROXY: 'localhost:8090'
+#          HTTP_PROXY: 'localhost:8090'
+#          CI: 1
+#          FORCE_COLOR: 1
+#        run: yarn test:e2e e2e-tests/test/front_guest
 
       - run: git checkout composer.*
       ## see https://docs.github.com/ja/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions#publishing-a-package-using-an-action
